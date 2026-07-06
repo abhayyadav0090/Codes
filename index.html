@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codes — Abhay Yadav</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F3EE;
+    --panel:#FFFFFF;
+    --ink:#151A17;
+    --sub:#5B655C;
+    --line:#DCE0D6;
+    --ac:#1C9950;      /* verdict: accepted */
+    --wa:#D64545;      /* verdict: wrong answer */
+    --tle:#E0932C;     /* verdict: pending/TLE */
+    --blue:#2456C9;    /* CF "expert" rating blue — primary accent */
+    --gray:#8A8F87;    /* CF "newbie" rating gray */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  ::selection{background:var(--blue);color:#fff;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 40px;
+    background:rgba(241,243,238,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:1.05rem;letter-spacing:-0.02em;}
+  .logo span{color:var(--blue);}
+  .navlinks{display:flex;gap:28px;align-items:center;font-size:0.92rem;}
+  .navlinks a{text-decoration:none;color:var(--sub);transition:color .15s;}
+  .navlinks a:hover{color:var(--ink);}
+  .btn{
+    font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:500;
+    background:var(--ink);color:var(--paper);
+    padding:9px 16px;border-radius:6px;text-decoration:none;
+    border:1px solid var(--ink);
+    transition:transform .15s, box-shadow .15s;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 4px 0 var(--line);}
+  .btn.outline{background:transparent;color:var(--ink);}
+
+  section{padding:96px 40px;max-width:1100px;margin:0 auto;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;
+    padding-top:72px;padding-bottom:72px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--blue);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px;display:flex;gap:10px;align-items:center;
+  }
+  .eyebrow::before{content:"$";color:var(--gray);}
+  h1{
+    font-family:'JetBrains Mono',monospace;
+    font-size:clamp(2.8rem,6vw,4.6rem);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:0.98;
+    margin:0 0 22px;
+  }
+  h1 .dim{color:var(--gray);}
+  .lede{font-size:1.08rem;color:var(--sub);max-width:46ch;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* terminal */
+  .term{
+    background:#11150F;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 20px 50px -18px rgba(20,25,20,0.45);
+    border:1px solid #262C22;
+  }
+  .term-bar{
+    display:flex;align-items:center;gap:8px;
+    padding:11px 14px;background:#1A1F17;border-bottom:1px solid #262C22;
+  }
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .term-bar .dot:nth-child(1){background:#D64545;}
+  .term-bar .dot:nth-child(2){background:#E0932C;}
+  .term-bar .dot:nth-child(3){background:#1C9950;}
+  .term-title{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#8C9484;}
+  .term-body{padding:20px 22px;font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:#C7D0BF;min-height:280px;}
+  .term-body .c1{color:#5C9EFF;}
+  .term-body .c2{color:#7FD99A;}
+  .term-body .comment{color:#5F6B58;}
+  .cursor{display:inline-block;width:7px;height:14px;background:#C7D0BF;vertical-align:middle;animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  #verdictLine{margin-top:10px;font-weight:700;opacity:0;transition:opacity .3s;}
+  #verdictLine.show{opacity:1;}
+  .v-ac{color:var(--ac);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;}
+  h2{font-family:'JetBrains Mono',monospace;font-size:2rem;letter-spacing:-0.02em;margin:0 0 18px;}
+  .about-grid p{color:var(--sub);margin-bottom:16px;}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .badge{
+    font-family:'JetBrains Mono',monospace;font-size:0.76rem;
+    padding:6px 10px;border-radius:5px;border:1px solid var(--line);background:var(--panel);color:var(--sub);
+  }
+  .stat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 18px;}
+  .stat-card .num{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:2rem;color:var(--blue);}
+  .stat-card .lbl{font-size:0.82rem;color:var(--sub);margin-top:4px;}
+
+  /* ---------- SUBMISSION LOG ---------- */
+  .log-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:16px;}
+  .log{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);}
+  .log-row{
+    display:grid;grid-template-columns:1.6fr 1.4fr 0.7fr 0.9fr 0.5fr;
+    gap:16px;padding:18px 22px;align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .log-row:last-child{border-bottom:none;}
+  .log-row.head{background:#F7F8F4;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray);padding:12px 22px;}
+  .platform{font-weight:600;}
+  .platform-sub{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--sub);display:block;margin-top:3px;}
+  .files{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--sub);}
+  .verdict{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;
+    padding:4px 9px;border-radius:5px;display:inline-block;letter-spacing:0.02em;
+  }
+  .verdict.ac{background:rgba(28,153,80,0.12);color:var(--ac);}
+  .verdict.wip{background:rgba(224,147,44,0.14);color:var(--tle);}
+  .lang{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--sub);}
+  .log-row a.view{font-size:0.82rem;color:var(--blue);text-decoration:none;font-weight:600;white-space:nowrap;}
+  .log-row a.view:hover{text-decoration:underline;}
+
+  /* problems strip */
+  .problems{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .problem-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;}
+  .problem-card .pid{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--blue);font-weight:700;}
+  .problem-card h4{margin:6px 0 8px;font-size:1rem;}
+  .problem-card p{margin:0;color:var(--sub);font-size:0.86rem;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:48px 40px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  .footer-links{display:flex;gap:22px;font-size:0.9rem;flex-wrap:wrap;}
+  .footer-links a{text-decoration:none;color:var(--sub);}
+  .footer-links a:hover{color:var(--blue);}
+  .footer-note{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--gray);}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .stat-cards{grid-template-columns:1fr 1fr;}
+    .log-row{grid-template-columns:1fr;gap:6px;}
+    .log-row.head{display:none;}
+    .log-row a.view{margin-top:6px;}
+    section{padding:64px 22px;}
+    nav{padding:14px 20px;}
+    .navlinks{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">AY<span>_</span>/Codes</div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#log">Submission Log</a>
+    <a href="#problems">Problems</a>
+  </div>
+  <a class="btn" href="https://github.com/abhayyadav0090/Codes" target="_blank" rel="noopener">
+    ⌥ View Repo
+  </a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">practice_log --platform=all</div>
+    <h1>Codes<span class="dim">.</span></h1>
+    <p class="lede">A working log of DSA problems I've solved across CodeForces, CodeChef, HackerRank and Coding Ninjas — committed as I learn, mistakes included.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://github.com/abhayyadav0090/Codes" target="_blank" rel="noopener">Browse the repo →</a>
+      <a class="btn outline" href="#log">See what's inside</a>
+    </div>
+  </div>
+
+  <div class="term">
+    <div class="term-bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="term-title">CodeForces/71A.cpp</span>
+    </div>
+    <div class="term-body" id="termBody"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="kicker">01 — About</div>
+      <h2>Why this repo exists</h2>
+      <p>This is where I keep the code from every problem I sit down and actually solve — not a curated portfolio, just the raw history. Some files are one-liners from a first CodeChef attempt, some are Codeforces Div-2 A's, some are half-finished course scaffolds.</p>
+      <p>I'm a B.Tech IT student building toward a full-stack + DSA foundation. This repo is the DSA half of that — the MERN half lives in a <a href="https://abhayyadav0090.github.io/MERN-Practice/" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">separate practice log</a>.</p>
+      <div class="badges">
+        <span class="badge">C</span><span class="badge">C++</span><span class="badge">JavaScript</span>
+        <span class="badge">#CoderArmy</span>
+      </div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="num">5</div><div class="lbl">platforms touched</div></div>
+      <div class="stat-card"><div class="num">20+</div><div class="lbl">solutions committed</div></div>
+      <div class="stat-card"><div class="num">3</div><div class="lbl">languages</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="log-head">
+    <div>
+      <div class="kicker">02 — Submission Log</div>
+      <h2>What's in each folder</h2>
+    </div>
+  </div>
+  <div class="log">
+    <div class="log-row head">
+      <div>Platform</div><div>What's there</div><div>Files</div><div>Status</div><div></div>
+    </div>
+
+    <div class="log-row">
+      <div class="platform">CodeForces<span class="platform-sub">Div-2 A's, tackled cold</span></div>
+      <div class="files">71A, 231A, 282A + 2 more</div>
+      <div class="lang">C++</div>
+      <div><span class="verdict ac">accepted</span></div>
+      <a class="view" href="https://github.com/abhayyadav0090/Codes/tree/main/CodeForces" target="_blank" rel="noopener">view →</a>
+    </div>
+
+    <div class="log-row">
+      <div class="platform">CodeChef<span class="platform-sub">Fundamentals — primes, triangles, digit sums</span></div>
+      <div class="files">14 files across C / C++</div>
+      <div class="lang">C, C++</div>
+      <div><span class="verdict ac">accepted</span></div>
+      <a class="view" href="https://github.com/abhayyadav0090/Codes/tree/main/CodeChef" target="_blank" rel="noopener">view →</a>
+    </div>
+
+    <div class="log-row">
+      <div class="platform">HackerRank<span class="platform-sub">Project Euler style — Multiples of 3 and 5</span></div>
+      <div class="files">1 file</div>
+      <div class="lang">JavaScript</div>
+      <div><span class="verdict ac">accepted</span></div>
+      <a class="view" href="https://github.com/abhayyadav0090/Codes/tree/main/HackerRank" target="_blank" rel="noopener">view →</a>
+    </div>
+
+    <div class="log-row">
+      <div class="platform">CodeStudio<span class="platform-sub">Coding Ninjas — Minor1 project scaffold</span></div>
+      <div class="files">1 scaffold project</div>
+      <div class="lang">C++</div>
+      <div><span class="verdict wip">in progress</span></div>
+      <a class="view" href="https://github.com/abhayyadav0090/Codes/tree/main/CodeStudio" target="_blank" rel="noopener">view →</a>
+    </div>
+
+    <div class="log-row">
+      <div class="platform">Strivers<span class="platform-sub">C++ fundamentals, following the sheet</span></div>
+      <div class="files">1 file</div>
+      <div class="lang">C++</div>
+      <div><span class="verdict wip">in progress</span></div>
+      <a class="view" href="https://github.com/abhayyadav0090/Codes/tree/main/Strivers" target="_blank" rel="noopener">view →</a>
+    </div>
+  </div>
+</section>
+
+<section id="problems">
+  <div class="kicker">03 — A Few Solved Problems</div>
+  <h2>Off the CodeForces shelf</h2>
+  <div class="problems">
+    <div class="problem-card">
+      <div class="pid">71A</div>
+      <h4>Way Too Long Words</h4>
+      <p>Abbreviate any word over 10 letters to first–count–last. Classic string warm-up.</p>
+    </div>
+    <div class="problem-card">
+      <div class="pid">231A</div>
+      <h4>Team</h4>
+      <p>Count problems a team agrees on solving — majority vote across three opinions.</p>
+    </div>
+    <div class="problem-card">
+      <div class="pid">282A</div>
+      <h4>Bit++</h4>
+      <p>Parse a sequence of ++X / X-- style statements and track the running value.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">© 2026 Abhay Yadav · logged from the terminal, one submission at a time</div>
+    <div class="footer-links">
+      <a href="https://github.com/abhayyadav0090" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhay-yadav-6923742b5/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:abhayyadav19955@gmail.com">Email</a>
+      <a href="https://abhayyadav0090.github.io/portfolio/" target="_blank" rel="noopener">Portfolio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const lines = [
+    {t:"// A. Way Too Long Words", cls:"comment"},
+    {t:""},
+    {t:"#include &lt;bits/stdc++.h&gt;", cls:"c1"},
+    {t:"using namespace std;", cls:"c1"},
+    {t:""},
+    {t:"int main(){", cls:""},
+    {t:"    int n; cin &gt;&gt; n;", cls:""},
+    {t:"    while(n--){", cls:""},
+    {t:"        string s; cin &gt;&gt; s;", cls:""},
+    {t:"        if(s.length() &gt; 10)", cls:""},
+    {t:"            cout &lt;&lt; s[0] &lt;&lt; s.length()-2", cls:""},
+    {t:"                 &lt;&lt; s.back();", cls:""},
+    {t:"        else cout &lt;&lt; s;", cls:""},
+    {t:"    }", cls:""},
+    {t:"    return 0;", cls:""},
+    {t:"}", cls:""},
+  ];
+
+  const body = document.getElementById('termBody');
+  let html = "";
+  let li = 0, ci = 0;
+
+  function typeChar(){
+    if(li >= lines.length){
+      const v = document.createElement('div');
+      v.id = 'verdictLine';
+      v.innerHTML = 'Verdict: <span class="v-ac">Accepted ✓</span>';
+      body.appendChild(v);
+      requestAnimationFrame(()=> v.classList.add('show'));
+      return;
+    }
+    const line = lines[li];
+    if(ci === 0){
+      const div = document.createElement('div');
+      div.className = line.cls || "";
+      div.innerHTML = "";
+      div.dataset.full = line.t;
+      body.appendChild(div);
+    }
+    const current = body.lastElementChild;
+    const full = current.dataset.full;
+    if(ci <= full.length){
+      current.innerHTML = full.slice(0, ci) + '<span class="cursor"></span>';
+      ci++;
+      setTimeout(typeChar, full.length === 0 ? 40 : 8 + Math.random()*14);
+    } else {
+      current.innerHTML = full;
+      li++; ci = 0;
+      setTimeout(typeChar, 40);
+    }
+  }
+  typeChar();
+</script>
+
+</body>
+</html>
