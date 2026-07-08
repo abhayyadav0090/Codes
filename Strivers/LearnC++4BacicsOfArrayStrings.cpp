@@ -14,12 +14,15 @@ int main(){
     // arr[3]=7.7 -> output: 7 (decimal part is truncated)
 
     // 2D Array
-    int array[3][5]; // 3 Rows and 5 Columns
+    int array[3][5]; // 3 Rows and 5 Columuuns
     array[1][3]=78;
     cout << array[1][2] << endl; // Garbage value
 
     string s = "Abhay";
+    int len = s.length();
     cout << s[0] << endl;
+    cout << s[len-1];
     cout << s+" "+"Yadav" << endl;
+
     return 0;
 }

@@ -18,13 +18,17 @@ int main(){
     cout << "Value of yy: " << yy << endl;
 
     string s;
-    cout<< "Enter a string (single word): "<<endl;
+    cout<< "Enter a string (single word): ";
     cin >> s;
     cout << "Value of s: " << s << endl;
 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear buffer due to cin >> s;
+    // or you can use getline(cin, s); -> without use of cin.ignore();
+
     cout<< "Enter a string (multiple words): ";
-    getline(cin, s);
-    cout << endl <<"Value of s: " << s << endl;
+    string sentence;
+    getline(cin, sentence);
+    cout <<"Value of sentence: " << sentence << endl;
 
     char c='a';
     cout << "Value of c: " << c << endl;
@@ -48,8 +52,6 @@ int main(){
         cout << "You are a senior citizen." << endl;
         cout << "Your age is: " << age << endl;
     }
-
-    
 
     return 0;
 }
