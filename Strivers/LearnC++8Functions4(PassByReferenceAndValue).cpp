@@ -4,6 +4,8 @@
 // Functions are used to use same code multiple times
 // types of Functions -> void, return, parameterised, non-parameterised
 
+// arrays are always passed by reference;
+
 #include <bits/stdc++.h>
 using namespace std;
 
