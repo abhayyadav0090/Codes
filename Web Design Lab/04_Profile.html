@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abhay Yadav - Profile</title>
+  <!-- <link rel="stylesheet" href="04_Profile.css"> -->
+</head>
+<body>
+
+  <!-- Header section: name + navigation menu -->
+  <header>
+    <h1>Abhay Yadav</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main section holds all the page content -->
+  <main>
+
+    <!-- Article about my hobby -->
+    <section id="about">
+      <article>
+        <h2>About Me</h2>
+        <p>
+          I am a 3rd semester B.Tech IT student. My main hobby is competitive
+          programming. I solve problems on websites like LeetCode and Codeforces
+          using C++. I am also learning web development.
+        </p>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80" alt="Laptop with code on the screen">
+      </article>
+    </section>
+
+    <!-- Weekly class schedule table -->
+    <section id="schedule">
+      <h2>My Weekly Class Schedule</h2>
+      <table border="1">
+        <tr>
+          <th>Time</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <tr>
+          <td>9-10</td>
+          <td>Discrete Structures</td>
+          <td>Data Structure Tut</td>
+          <td>Tech Comm</td>
+          <td>Electronics</td>
+          <td>Comp Org Tut</td>
+          <td>Data Structure</td>
+        </tr>
+        <tr>
+          <td>10-11</td>
+          <td>Tech Comm</td>
+          <td>Discrete Structures Tut</td>
+          <td>Electronics Tut</td>
+          <td>Free</td>
+          <td>Tech Comm Tut</td>
+          <td>Comp Org Tut</td>
+        </tr>
+        <tr>
+          <td>11-12</td>
+          <td>Data Structure</td>
+          <td>Computer Organization</td>
+          <td>Computer Organization</td>
+          <td>Computer Organization</td>
+          <td>Data Structure</td>
+          <td>Tech Comm Tut</td>
+        </tr>
+        <tr>
+          <td>12-1</td>
+          <td>Electronics Tut</td>
+          <td>Cyber Security</td>
+          <td>Discrete Structures</td>
+          <td>Cyber Security</td>
+          <td>Electronics</td>
+          <td>Discrete Structures Tut</td>
+        </tr>
+        <tr>
+          <td>1-2</td>
+          <td colspan="6">Lunch</td>
+        </tr>
+        <tr>
+          <td>2-3</td>
+          <td>Free</td>
+          <td>Electronics</td>
+          <td>Data Structure Tut</td>
+          <td>Free</td>
+          <td>Free</td>
+          <td>Mentor Meeting</td>
+        </tr>
+        <tr>
+          <td>3-5</td>
+          <td>Web Design Lab / Comp Org Lab</td>
+          <td>Comp Org Lab / Web Design Lab</td>
+          <td>DS Lab</td>
+          <td>DS Lab</td>
+          <td>Internship Assessment</td>
+          <td>Remedial Classes</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Contact form -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>
