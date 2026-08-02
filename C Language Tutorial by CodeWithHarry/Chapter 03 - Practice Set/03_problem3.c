@@ -1,3 +1,9 @@
+/*
+Program: calculating income tax of individual on entered income
+Author: Abhay Yadav
+Date: 02/08/2026
+*/
+
 #include <stdio.h>
 
 int main(){

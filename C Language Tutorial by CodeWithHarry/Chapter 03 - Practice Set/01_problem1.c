@@ -1,3 +1,9 @@
+/*
+Program: Checking output of given code snippet
+Author: Abhay Yadav
+Date: 02/08/2026
+*/
+
 #include <stdio.h>
 
 int main()
@@ -9,3 +15,8 @@ int main()
         printf("I am not 11"); 
     return 0;
 }
+
+//  output -> I am 11
+// use of = in place of ==
+// = -> Assignment operator
+// == -> Relational Operator
