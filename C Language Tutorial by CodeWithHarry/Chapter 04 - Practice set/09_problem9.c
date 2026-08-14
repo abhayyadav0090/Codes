@@ -11,8 +11,7 @@ int main(){
     // 5! = 1 X 2 X 3 X 4 X 5
     // n! = 1 X 2 X 3 X 4 X 5 ..... X n
     // 0! = 1
-    int i = 1;
-    double product=1, n = 5;
+    double i = 1, product=1, n = 5;
     printf("Enter a number: ");
     scanf("%lf", &n);
 
