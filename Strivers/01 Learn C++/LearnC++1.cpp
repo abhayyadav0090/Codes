@@ -31,6 +31,7 @@ int main(){
     cout <<"Value of sentence: " << sentence << endl;
 
     char c='a';
+    cin >> c;
     cout << "Value of c: " << c << endl;
 
     int age;
