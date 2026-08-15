@@ -34,7 +34,7 @@ int main(){
     cout << "Value of c: " << c << endl;
 
     int age;
-    cout << "Enter your age: ";
+    cout << "Enter your age: \n";
     cin >> age;
     if(age < 0){
         cout << "Invalid age!" << endl;

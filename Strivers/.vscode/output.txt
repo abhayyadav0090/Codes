@@ -1,0 +1,10 @@
+Value of x: 5
+Value of y: 10
+Value of xy: 1000000000
+Value of yy: 2000000000
+Enter a string (single word): Value of s: abhay
+Enter a string (multiple words): Value of sentence: dggf fgg hjj
+Value of c: a
+Enter your age: 
+You are a senior citizen.
+Your age is: 1345
