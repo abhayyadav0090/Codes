@@ -1,3 +1,9 @@
+/*
+Program: Problem 01
+Author: Abhay Yadav
+Date: 31/07/2026
+*/
+
 #include <stdio.h>
 
 int main(){
