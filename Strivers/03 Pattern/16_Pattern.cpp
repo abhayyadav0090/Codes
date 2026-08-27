@@ -5,7 +5,8 @@ int main() {
     int n;
     cin >> n;
     for(int i=1; i<=n; i++){
-        for(int j=0; j<i; j++) cout<< i << " ";
+        char CH = 'A' + i - 1;
+        for(int j=0; j<i; j++) cout<< CH << " ";
         cout << endl;
     }
     return 0;
@@ -13,14 +14,10 @@ int main() {
 
 /*
 
-1 
-2 2 
-3 3 3 
-4 4 4 4 
-5 5 5 5 5 
-6 6 6 6 6 6 
-7 7 7 7 7 7 7 
-8 8 8 8 8 8 8 8 
-9 9 9 9 9 9 9 9 9
+A
+B B
+C C C
+D D D D
+E E E E E
 
 */

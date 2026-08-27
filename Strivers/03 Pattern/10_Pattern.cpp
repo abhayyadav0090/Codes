@@ -1,21 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main(){
     int n;
     cin >> n;
-    
-    int size = 2*n - 1;
-    
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            // Distance from nearest border
-            int dist = min({i, j, size-1-i, size-1-j});
-            cout << n - dist;
-            if (j < size-1) cout << " ";
+    for(int i=1; i<=n/2+1; i++){
+        for(int k=1; k<=i; k++){
+            if(k==i) cout << "*";
+            else cout << "* ";
         }
-        cout << "\n";
+        cout << endl;
     }
-    
+    for(int i=n/2; i>=1; i--){
+        for(int k=1; k<=i; k++){
+            if(k==i) cout << "*";
+            else cout << "* ";
+        }
+        cout << endl;
+    }
     return 0;
 }
+
+/*
+
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+
+*/
