@@ -1,8 +1,9 @@
-2 
-1 1
-6
-1 2 6 
-1 2 6 
-10 20 12 23 
-10 12 23 
-10 20 35 
+Element at Back : 9
+Element at Front : 1
+Element at Front after Pop : 2
+Size of Queue : 2
+
+Before Swapping -> q1 back : 1 and q2 back : 2
+After Swapping -> q1 back : 2 and q2 back : 1
+Is the Queues Q and q1 are Empty ?
+Q: 0 and q1: 1

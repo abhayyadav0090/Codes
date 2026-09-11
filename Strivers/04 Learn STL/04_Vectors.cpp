@@ -62,8 +62,35 @@ void explainVector(){
     
     // erasing multiple elements at once
     v={10, 20, 12, 23, 35};          // Reassigning the values of vector v;
-    v.erase(v.begin()+2, v.begin()+4); // erasing the elements from third element to 5th element but 5th is included that is 12 and 23.
+    v.erase(v.begin()+2, v.begin()+4); // erasing the elements from third element to 5th element but 5th is not included that is 12 and 23.
     cout << endl; for(auto it:v) cout << it << " ";      // 10 20 35
+
+    // Insert function
+    // vector<int>v{2,100};
+    v={2, 100};
+    v.insert(v.begin(), 300); // inserting 300 at the beginning of vector v
+    v.insert(v.begin()+1, 2, 10); // inserting 2 instances of 10 at the second position of vector v
+    vector<int> copy(2, 50); // creating a vector copy with 2 instances of 50
+    v.insert(v.begin(), copy.begin(), copy.end()); // inserting the vector copy at the beginning of vector v
+    
+    cout << endl; 
+    for(auto it:v) cout << it << " ";      // 50 50 300 10 10 2 100
+    cout << endl;
+    cout << "Size: " << v.size() << endl; // Size of vector v
+
+    cout << "Capacity: " << v.capacity(); // Capacity of vector v
+
+    v.pop_back(); // removes the last element of vector v
+
+    v.swap(v1); // swaps the contents of vector v and v1
+    cout << endl; for(auto it:v) cout << it << " ";      // 100 100 100 100 100
+    cout << endl; for(auto it:v1) cout << it << " ";      // 50 50 300 10 10 2
+    v1.swap(v); // swaps the contents of vector v1 and v
+    cout << endl; for(auto it:v) cout << it << " ";      // 50 50 300 10 10 2
+    cout << endl; for(auto it:v1) cout << it << " ";      // 100 100 100 100 100
+
+    v.clear(); // clears the vector v
+    cout << endl << "Is v empty? " << v.empty() << endl; // returns true if vector v is empty else false
 }
 
 int main(){
