@@ -1,3 +1,15 @@
-First occurance: -1
-Last occurance: -1
-Total Occurances: 0
+Binary Search Function
+0
+1
+
+Lower Bound Function
+1
+4
+6
+
+Upper Bound Function
+2
+4
+6
+6
+
