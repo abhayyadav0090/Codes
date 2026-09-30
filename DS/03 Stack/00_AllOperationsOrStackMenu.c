@@ -129,6 +129,5 @@ int main() {
                 printf("Invalid choice! Please enter a number between 1 and 8.\n");
         }
     }
-
     return 0;
 }
