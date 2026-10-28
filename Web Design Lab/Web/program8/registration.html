@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            background-color: #f7f5ef;
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h2 {
+            color: darkgreen;
+        }
+
+        td {
+            padding: 8px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>New User Registration</h2>
+
+    <form>
+        <table>
+            <tr>
+                <td>Full Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password" name="cpassword"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>
+                    <select name="city">
+                        <option>Select City</option>
+                        <option>Delhi</option>
+                        <option>Lucknow</option>
+                        <option>Moradabad</option>
+                        <option>Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Interests:</td>
+                <td>
+                    <input type="checkbox"> Programming
+                    <input type="checkbox"> Networking
+                    <input type="checkbox"> Web Design
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Register">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
